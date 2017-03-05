@@ -1,2 +1,0 @@
-channels==1.0.3
-Django==1.10.6
