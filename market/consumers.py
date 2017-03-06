@@ -25,6 +25,15 @@ def ws_message(message):
 		Group("charts").send({
 			'text': json.dumps({"results" : [x for x in stock_list], 'type' : 'update' }),
 		})
+	elif req['text'] == 'remove':
+		Stocks.objects.filter(name = req['payload']).delete()
+		try:
+			stock_list.remove(req['payload'])
+		except Exception as e:
+			pass
+		Group("charts").send({
+			'text': json.dumps({"results" : [x for x in stock_list], 'type' : 'update' }),
+		})
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):
