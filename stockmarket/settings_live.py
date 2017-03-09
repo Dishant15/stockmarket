@@ -1,4 +1,4 @@
-import redis, os
+# import redis, os
 
 DATABASES = {
     'default': {
@@ -14,9 +14,9 @@ DATABASES = {
 # Channel settings
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "BACKEND": "asgi_ipc.IPCChannelLayer",
         "CONFIG": {
-            "hosts": [redis.from_url(os.environ.get("REDIS_URL"))],
+            "prefix": "stockmarket",
         },
         "ROUTING": "stockmarket.routing.channel_routing",
     },
