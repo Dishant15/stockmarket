@@ -9,13 +9,3 @@ DATABASES = {
     },
 }
 
-# Channel settings
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": ['redis://localhost:6379'],
-        },
-        "ROUTING": "stockmarket.routing.channel_routing",
-    },
-}
