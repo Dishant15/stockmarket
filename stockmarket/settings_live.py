@@ -1,3 +1,5 @@
+import redis, os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -14,7 +16,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": ['redis://localhost:6379'],
+            "hosts": [redis.from_url(os.environ.get("REDIS_URL"))],
         },
         "ROUTING": "stockmarket.routing.channel_routing",
     },
