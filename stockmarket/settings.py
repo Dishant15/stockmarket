@@ -108,27 +108,3 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
 }
-
-from channels.routing import route
-from market.consumers import (
-    ws_message,
-    ws_add,
-    ws_disconnect,
-)
-
-channel_routing = [
-    route("websocket.connect", ws_add),
-    route("websocket.receive", ws_message),
-    route("websocket.disconnect", ws_disconnect),
-]
-
-# Channel settings
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": ['redis://localhost:6379'],
-        },
-        "ROUTING": "routing.channel_routing",
-    },
-}

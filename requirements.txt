@@ -1,7 +1,7 @@
 asgi-redis==0.8.3
 asgiref==0.9
 autobahn==0.12.1
-channels==0.9.3
+channels==1.0.3
 daphne==0.9.1
 Django==1.9.3
 haikunator==1.0.1
