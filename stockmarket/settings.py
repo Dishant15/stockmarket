@@ -109,6 +109,19 @@ WEBPACK_LOADER = {
     }
 }
 
+from channels.routing import route
+from market.consumers import (
+    ws_message,
+    ws_add,
+    ws_disconnect,
+)
+
+channel_routing = [
+    route("websocket.connect", ws_add),
+    route("websocket.receive", ws_message),
+    route("websocket.disconnect", ws_disconnect),
+]
+
 # Channel settings
 CHANNEL_LAYERS = {
     "default": {
@@ -116,6 +129,6 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": ['redis://localhost:6379'],
         },
-        "ROUTING": "stockmarket.routing.channel_routing",
+        "ROUTING": "routing.channel_routing",
     },
 }
