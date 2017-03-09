@@ -75,15 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'stockmarket.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+from settings_live import *
 
 
 # Internationalization
@@ -115,12 +107,4 @@ WEBPACK_LOADER = {
         'BUNDLE_DIR_NAME': '',
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
-}
-
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "stockmarket.routing.channel_routing",
-    },
 }
