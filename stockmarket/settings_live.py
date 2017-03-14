@@ -1,4 +1,4 @@
-import redis, os
+# import redis, os
 
 DATABASES = {
 	'default': {
@@ -16,7 +16,7 @@ CHANNEL_LAYERS = {
 	"default": {
 		"BACKEND": "asgi_redis.RedisChannelLayer",
 		"CONFIG": {
-			"hosts": [redis.from_url(os.environ.get("REDIS_URL"))],
+			"hosts": ['redis://h:p72f1b7179844f7b4176f39c923bd37660d6498ce9657e6d6d0d809c01ed4f96b@ec2-34-198-196-38.compute-1.amazonaws.com:41759'],
 		},
 		"ROUTING": "stockmarket.routing.channel_routing",
 	},
