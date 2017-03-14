@@ -1,4 +1,6 @@
 # import redis, os
+ALLOWED_HOSTS = [ 'localhost:8000', 'stockmarket15.herokuapp.com' ]
+
 
 DATABASES = {
 	'default': {
