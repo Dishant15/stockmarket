@@ -74,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stockmarket.wsgi.application'
 
-
 from settings_live import *
 
 

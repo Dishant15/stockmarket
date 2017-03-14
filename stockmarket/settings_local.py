@@ -1,7 +1,5 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -10,10 +8,12 @@ DATABASES = {
     }
 }
 
-
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [ "redis://localhost:6379" ],
+        },
         "ROUTING": "stockmarket.routing.channel_routing",
     },
 }

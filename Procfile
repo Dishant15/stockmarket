@@ -1,2 +1,2 @@
-web: daphne stockmarket.asgi:channel_layer --port $PORT --bind 0.0.0.0 -v2
+web: daphne stockmarket.asgi:channel_layer --port $PORT
 worker: python manage.py runworker -v2
