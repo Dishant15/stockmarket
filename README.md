@@ -1,7 +1,9 @@
 # stockmarket
 Charting stock market data in real time with new Django websockets
 
-[Live Demo](https://stockmarket15.herokuapp.com)
+![indexsnap](https://cloud.githubusercontent.com/assets/3438538/23888603/d8822670-08ae-11e7-9fde-7d7f07e8e330.png)
+
+See [Live Demo](https://stockmarket15.herokuapp.com)
 
 ## How to run
 
